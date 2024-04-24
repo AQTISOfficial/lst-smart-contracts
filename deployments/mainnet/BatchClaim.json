@@ -1,0 +1,506 @@
+{
+  "address": "0x1e5f5f2943D11566c013c59FCE13Bf89b8cCF0e5",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_claimVault",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableInvalidOwner",
+      "type": "error"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "OwnableUnauthorizedAccount",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "lst",
+          "type": "address"
+        }
+      ],
+      "name": "AutoClaimDisabled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "lst",
+          "type": "address"
+        }
+      ],
+      "name": "AutoClaimEnabled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "lst",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "reason",
+          "type": "string"
+        }
+      ],
+      "name": "ClaimFailed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "batchClaim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "claimVault",
+      "outputs": [
+        {
+          "internalType": "contract IClaimVault",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getAutoClaimUsers",
+      "outputs": [
+        {
+          "internalType": "address[]",
+          "name": "",
+          "type": "address[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "lst",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "_user",
+          "type": "address"
+        }
+      ],
+      "name": "isAutoClaimEnabled",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address[]",
+          "name": "_users",
+          "type": "address[]"
+        }
+      ],
+      "name": "multiClaim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "lst",
+          "type": "address"
+        },
+        {
+          "internalType": "address[]",
+          "name": "_users",
+          "type": "address[]"
+        }
+      ],
+      "name": "multiClaimLST",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "scheduler",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "lst",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "_enabled",
+          "type": "bool"
+        }
+      ],
+      "name": "setAutoClaim",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_scheduler",
+          "type": "address"
+        }
+      ],
+      "name": "setScheduler",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "userLSTConfig",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x36eadbed3ad36200b9ab0c81958e3a500b7d326faca536e390bc6d65f1fac32f",
+  "receipt": {
+    "to": null,
+    "from": "0x9e3c17d39bE89bbFCCf0e1A4f266C0271C05C228",
+    "contractAddress": "0x1e5f5f2943D11566c013c59FCE13Bf89b8cCF0e5",
+    "transactionIndex": 213,
+    "gasUsed": "1150849",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000800000400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000200000000000020000000000000000000800000000000000000000000000000000480000000000200000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xd6d2754cc6cfee1ae0e1c67e4b9f7461e7039e2b061e5611b261c25e21c5d277",
+    "transactionHash": "0x36eadbed3ad36200b9ab0c81958e3a500b7d326faca536e390bc6d65f1fac32f",
+    "logs": [
+      {
+        "transactionIndex": 213,
+        "blockNumber": 19675438,
+        "transactionHash": "0x36eadbed3ad36200b9ab0c81958e3a500b7d326faca536e390bc6d65f1fac32f",
+        "address": "0x1e5f5f2943D11566c013c59FCE13Bf89b8cCF0e5",
+        "topics": [
+          "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
+          "0x0000000000000000000000000000000000000000000000000000000000000000",
+          "0x0000000000000000000000009e3c17d39be89bbfccf0e1a4f266c0271c05c228"
+        ],
+        "data": "0x",
+        "logIndex": 269,
+        "blockHash": "0xd6d2754cc6cfee1ae0e1c67e4b9f7461e7039e2b061e5611b261c25e21c5d277"
+      }
+    ],
+    "blockNumber": 19675438,
+    "cumulativeGasUsed": "13675506",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [
+    "0xb9D250ae3B05279721D9399b01659827f62995ad"
+  ],
+  "numDeployments": 1,
+  "solcInputHash": "9087a8a1961bde39b6a21ecb15b711d3",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.23+commit.f704f362\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_claimVault\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"OwnableInvalidOwner\",\"type\":\"error\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"OwnableUnauthorizedAccount\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"lst\",\"type\":\"address\"}],\"name\":\"AutoClaimDisabled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"lst\",\"type\":\"address\"}],\"name\":\"AutoClaimEnabled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"lst\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"reason\",\"type\":\"string\"}],\"name\":\"ClaimFailed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"batchClaim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"claimVault\",\"outputs\":[{\"internalType\":\"contract IClaimVault\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getAutoClaimUsers\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"lst\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"_user\",\"type\":\"address\"}],\"name\":\"isAutoClaimEnabled\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address[]\",\"name\":\"_users\",\"type\":\"address[]\"}],\"name\":\"multiClaim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"lst\",\"type\":\"address\"},{\"internalType\":\"address[]\",\"name\":\"_users\",\"type\":\"address[]\"}],\"name\":\"multiClaimLST\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"scheduler\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"lst\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"_enabled\",\"type\":\"bool\"}],\"name\":\"setAutoClaim\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_scheduler\",\"type\":\"address\"}],\"name\":\"setScheduler\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"userLSTConfig\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"A Q T I S / @AQTIS-Team\",\"errors\":{\"OwnableInvalidOwner(address)\":[{\"details\":\"The owner is not a valid owner account. (eg. `address(0)`)\"}],\"OwnableUnauthorizedAccount(address)\":[{\"details\":\"The caller account is not authorized to perform an operation.\"}]},\"kind\":\"dev\",\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner.\"},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"title\":\"BatchClaim Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"This contract handles batch claiming of rewards\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/rewards/BatchClaim.sol\":\"BatchClaim\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":1000},\"remappings\":[]},\"sources\":{\"@openzeppelin/contracts/access/Ownable.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)\\n\\npragma solidity ^0.8.20;\\n\\nimport {Context} from \\\"../utils/Context.sol\\\";\\n\\n/**\\n * @dev Contract module which provides a basic access control mechanism, where\\n * there is an account (an owner) that can be granted exclusive access to\\n * specific functions.\\n *\\n * The initial owner is set to the address provided by the deployer. This can\\n * later be changed with {transferOwnership}.\\n *\\n * This module is used through inheritance. It will make available the modifier\\n * `onlyOwner`, which can be applied to your functions to restrict their use to\\n * the owner.\\n */\\nabstract contract Ownable is Context {\\n    address private _owner;\\n\\n    /**\\n     * @dev The caller account is not authorized to perform an operation.\\n     */\\n    error OwnableUnauthorizedAccount(address account);\\n\\n    /**\\n     * @dev The owner is not a valid owner account. (eg. `address(0)`)\\n     */\\n    error OwnableInvalidOwner(address owner);\\n\\n    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);\\n\\n    /**\\n     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.\\n     */\\n    constructor(address initialOwner) {\\n        if (initialOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(initialOwner);\\n    }\\n\\n    /**\\n     * @dev Throws if called by any account other than the owner.\\n     */\\n    modifier onlyOwner() {\\n        _checkOwner();\\n        _;\\n    }\\n\\n    /**\\n     * @dev Returns the address of the current owner.\\n     */\\n    function owner() public view virtual returns (address) {\\n        return _owner;\\n    }\\n\\n    /**\\n     * @dev Throws if the sender is not the owner.\\n     */\\n    function _checkOwner() internal view virtual {\\n        if (owner() != _msgSender()) {\\n            revert OwnableUnauthorizedAccount(_msgSender());\\n        }\\n    }\\n\\n    /**\\n     * @dev Leaves the contract without owner. It will not be possible to call\\n     * `onlyOwner` functions. Can only be called by the current owner.\\n     *\\n     * NOTE: Renouncing ownership will leave the contract without an owner,\\n     * thereby disabling any functionality that is only available to the owner.\\n     */\\n    function renounceOwnership() public virtual onlyOwner {\\n        _transferOwnership(address(0));\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Can only be called by the current owner.\\n     */\\n    function transferOwnership(address newOwner) public virtual onlyOwner {\\n        if (newOwner == address(0)) {\\n            revert OwnableInvalidOwner(address(0));\\n        }\\n        _transferOwnership(newOwner);\\n    }\\n\\n    /**\\n     * @dev Transfers ownership of the contract to a new account (`newOwner`).\\n     * Internal function without access restriction.\\n     */\\n    function _transferOwnership(address newOwner) internal virtual {\\n        address oldOwner = _owner;\\n        _owner = newOwner;\\n        emit OwnershipTransferred(oldOwner, newOwner);\\n    }\\n}\\n\",\"keccak256\":\"0xff6d0bb2e285473e5311d9d3caacb525ae3538a80758c10649a4d61029b017bb\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/Context.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Provides information about the current execution context, including the\\n * sender of the transaction and its data. While these are generally available\\n * via msg.sender and msg.data, they should not be accessed in such a direct\\n * manner, since when dealing with meta-transactions the account sending and\\n * paying for execution may not be the actual sender (as far as an application\\n * is concerned).\\n *\\n * This contract is only required for intermediate, library-like contracts.\\n */\\nabstract contract Context {\\n    function _msgSender() internal view virtual returns (address) {\\n        return msg.sender;\\n    }\\n\\n    function _msgData() internal view virtual returns (bytes calldata) {\\n        return msg.data;\\n    }\\n\\n    function _contextSuffixLength() internal view virtual returns (uint256) {\\n        return 0;\\n    }\\n}\\n\",\"keccak256\":\"0x493033a8d1b176a037b2cc6a04dad01a5c157722049bbecf632ca876224dd4b2\",\"license\":\"MIT\"},\"@openzeppelin/contracts/utils/structs/EnumerableSet.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\n// OpenZeppelin Contracts (last updated v5.0.0) (utils/structs/EnumerableSet.sol)\\n// This file was procedurally generated from scripts/generate/templates/EnumerableSet.js.\\n\\npragma solidity ^0.8.20;\\n\\n/**\\n * @dev Library for managing\\n * https://en.wikipedia.org/wiki/Set_(abstract_data_type)[sets] of primitive\\n * types.\\n *\\n * Sets have the following properties:\\n *\\n * - Elements are added, removed, and checked for existence in constant time\\n * (O(1)).\\n * - Elements are enumerated in O(n). No guarantees are made on the ordering.\\n *\\n * ```solidity\\n * contract Example {\\n *     // Add the library methods\\n *     using EnumerableSet for EnumerableSet.AddressSet;\\n *\\n *     // Declare a set state variable\\n *     EnumerableSet.AddressSet private mySet;\\n * }\\n * ```\\n *\\n * As of v3.3.0, sets of type `bytes32` (`Bytes32Set`), `address` (`AddressSet`)\\n * and `uint256` (`UintSet`) are supported.\\n *\\n * [WARNING]\\n * ====\\n * Trying to delete such a structure from storage will likely result in data corruption, rendering the structure\\n * unusable.\\n * See https://github.com/ethereum/solidity/pull/11843[ethereum/solidity#11843] for more info.\\n *\\n * In order to clean an EnumerableSet, you can either remove all elements one by one or create a fresh instance using an\\n * array of EnumerableSet.\\n * ====\\n */\\nlibrary EnumerableSet {\\n    // To implement this library for multiple types with as little code\\n    // repetition as possible, we write it in terms of a generic Set type with\\n    // bytes32 values.\\n    // The Set implementation uses private functions, and user-facing\\n    // implementations (such as AddressSet) are just wrappers around the\\n    // underlying Set.\\n    // This means that we can only create new EnumerableSets for types that fit\\n    // in bytes32.\\n\\n    struct Set {\\n        // Storage of set values\\n        bytes32[] _values;\\n        // Position is the index of the value in the `values` array plus 1.\\n        // Position 0 is used to mean a value is not in the set.\\n        mapping(bytes32 value => uint256) _positions;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function _add(Set storage set, bytes32 value) private returns (bool) {\\n        if (!_contains(set, value)) {\\n            set._values.push(value);\\n            // The value is stored at length-1, but we add 1 to all indexes\\n            // and use 0 as a sentinel value\\n            set._positions[value] = set._values.length;\\n            return true;\\n        } else {\\n            return false;\\n        }\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function _remove(Set storage set, bytes32 value) private returns (bool) {\\n        // We cache the value's position to prevent multiple reads from the same storage slot\\n        uint256 position = set._positions[value];\\n\\n        if (position != 0) {\\n            // Equivalent to contains(set, value)\\n            // To delete an element from the _values array in O(1), we swap the element to delete with the last one in\\n            // the array, and then remove the last element (sometimes called as 'swap and pop').\\n            // This modifies the order of the array, as noted in {at}.\\n\\n            uint256 valueIndex = position - 1;\\n            uint256 lastIndex = set._values.length - 1;\\n\\n            if (valueIndex != lastIndex) {\\n                bytes32 lastValue = set._values[lastIndex];\\n\\n                // Move the lastValue to the index where the value to delete is\\n                set._values[valueIndex] = lastValue;\\n                // Update the tracked position of the lastValue (that was just moved)\\n                set._positions[lastValue] = position;\\n            }\\n\\n            // Delete the slot where the moved value was stored\\n            set._values.pop();\\n\\n            // Delete the tracked position for the deleted slot\\n            delete set._positions[value];\\n\\n            return true;\\n        } else {\\n            return false;\\n        }\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function _contains(Set storage set, bytes32 value) private view returns (bool) {\\n        return set._positions[value] != 0;\\n    }\\n\\n    /**\\n     * @dev Returns the number of values on the set. O(1).\\n     */\\n    function _length(Set storage set) private view returns (uint256) {\\n        return set._values.length;\\n    }\\n\\n    /**\\n     * @dev Returns the value stored at position `index` in the set. O(1).\\n     *\\n     * Note that there are no guarantees on the ordering of values inside the\\n     * array, and it may change when more values are added or removed.\\n     *\\n     * Requirements:\\n     *\\n     * - `index` must be strictly less than {length}.\\n     */\\n    function _at(Set storage set, uint256 index) private view returns (bytes32) {\\n        return set._values[index];\\n    }\\n\\n    /**\\n     * @dev Return the entire set in an array\\n     *\\n     * WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed\\n     * to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that\\n     * this function has an unbounded cost, and using it as part of a state-changing function may render the function\\n     * uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.\\n     */\\n    function _values(Set storage set) private view returns (bytes32[] memory) {\\n        return set._values;\\n    }\\n\\n    // Bytes32Set\\n\\n    struct Bytes32Set {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(Bytes32Set storage set, bytes32 value) internal returns (bool) {\\n        return _add(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(Bytes32Set storage set, bytes32 value) internal returns (bool) {\\n        return _remove(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(Bytes32Set storage set, bytes32 value) internal view returns (bool) {\\n        return _contains(set._inner, value);\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(Bytes32Set storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n    /**\\n     * @dev Returns the value stored at position `index` in the set. O(1).\\n     *\\n     * Note that there are no guarantees on the ordering of values inside the\\n     * array, and it may change when more values are added or removed.\\n     *\\n     * Requirements:\\n     *\\n     * - `index` must be strictly less than {length}.\\n     */\\n    function at(Bytes32Set storage set, uint256 index) internal view returns (bytes32) {\\n        return _at(set._inner, index);\\n    }\\n\\n    /**\\n     * @dev Return the entire set in an array\\n     *\\n     * WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed\\n     * to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that\\n     * this function has an unbounded cost, and using it as part of a state-changing function may render the function\\n     * uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.\\n     */\\n    function values(Bytes32Set storage set) internal view returns (bytes32[] memory) {\\n        bytes32[] memory store = _values(set._inner);\\n        bytes32[] memory result;\\n\\n        /// @solidity memory-safe-assembly\\n        assembly {\\n            result := store\\n        }\\n\\n        return result;\\n    }\\n\\n    // AddressSet\\n\\n    struct AddressSet {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(AddressSet storage set, address value) internal returns (bool) {\\n        return _add(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(AddressSet storage set, address value) internal returns (bool) {\\n        return _remove(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(AddressSet storage set, address value) internal view returns (bool) {\\n        return _contains(set._inner, bytes32(uint256(uint160(value))));\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(AddressSet storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n    /**\\n     * @dev Returns the value stored at position `index` in the set. O(1).\\n     *\\n     * Note that there are no guarantees on the ordering of values inside the\\n     * array, and it may change when more values are added or removed.\\n     *\\n     * Requirements:\\n     *\\n     * - `index` must be strictly less than {length}.\\n     */\\n    function at(AddressSet storage set, uint256 index) internal view returns (address) {\\n        return address(uint160(uint256(_at(set._inner, index))));\\n    }\\n\\n    /**\\n     * @dev Return the entire set in an array\\n     *\\n     * WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed\\n     * to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that\\n     * this function has an unbounded cost, and using it as part of a state-changing function may render the function\\n     * uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.\\n     */\\n    function values(AddressSet storage set) internal view returns (address[] memory) {\\n        bytes32[] memory store = _values(set._inner);\\n        address[] memory result;\\n\\n        /// @solidity memory-safe-assembly\\n        assembly {\\n            result := store\\n        }\\n\\n        return result;\\n    }\\n\\n    // UintSet\\n\\n    struct UintSet {\\n        Set _inner;\\n    }\\n\\n    /**\\n     * @dev Add a value to a set. O(1).\\n     *\\n     * Returns true if the value was added to the set, that is if it was not\\n     * already present.\\n     */\\n    function add(UintSet storage set, uint256 value) internal returns (bool) {\\n        return _add(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Removes a value from a set. O(1).\\n     *\\n     * Returns true if the value was removed from the set, that is if it was\\n     * present.\\n     */\\n    function remove(UintSet storage set, uint256 value) internal returns (bool) {\\n        return _remove(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Returns true if the value is in the set. O(1).\\n     */\\n    function contains(UintSet storage set, uint256 value) internal view returns (bool) {\\n        return _contains(set._inner, bytes32(value));\\n    }\\n\\n    /**\\n     * @dev Returns the number of values in the set. O(1).\\n     */\\n    function length(UintSet storage set) internal view returns (uint256) {\\n        return _length(set._inner);\\n    }\\n\\n    /**\\n     * @dev Returns the value stored at position `index` in the set. O(1).\\n     *\\n     * Note that there are no guarantees on the ordering of values inside the\\n     * array, and it may change when more values are added or removed.\\n     *\\n     * Requirements:\\n     *\\n     * - `index` must be strictly less than {length}.\\n     */\\n    function at(UintSet storage set, uint256 index) internal view returns (uint256) {\\n        return uint256(_at(set._inner, index));\\n    }\\n\\n    /**\\n     * @dev Return the entire set in an array\\n     *\\n     * WARNING: This operation will copy the entire storage to memory, which can be quite expensive. This is designed\\n     * to mostly be used by view accessors that are queried without any gas fees. Developers should keep in mind that\\n     * this function has an unbounded cost, and using it as part of a state-changing function may render the function\\n     * uncallable if the set grows to a point where copying to memory consumes too much gas to fit in a block.\\n     */\\n    function values(UintSet storage set) internal view returns (uint256[] memory) {\\n        bytes32[] memory store = _values(set._inner);\\n        uint256[] memory result;\\n\\n        /// @solidity memory-safe-assembly\\n        assembly {\\n            result := store\\n        }\\n\\n        return result;\\n    }\\n}\\n\",\"keccak256\":\"0x86c1470cbfd878491e5de030072b647352d36bd27122cffb928970b1945282aa\",\"license\":\"MIT\"},\"contracts/interfaces/IClaimVault.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.23;\\n\\n/**\\n * @title Claim Vault Interface\\n * @author A Q T I S / @AQTIS-Team\\n * @notice Interface for claim vault\\n */\\n\\ninterface IClaimVault {\\n    function claimRewards(address lst) external;\\n\\n    function claimRewardsFor(address lst, address user) external;\\n\\n    function getLSTs() external view returns (address[] memory);\\n}\",\"keccak256\":\"0x9a5ef88af4067160b91a1268661b089686a889b9b47d68ef738eea853767b5ab\",\"license\":\"MIT\"},\"contracts/rewards/BatchClaim.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.23;\\n\\nimport {EnumerableSet} from \\\"@openzeppelin/contracts/utils/structs/EnumerableSet.sol\\\";\\nimport {Ownable} from \\\"@openzeppelin/contracts/access/Ownable.sol\\\";\\n\\nimport {IClaimVault} from \\\"../interfaces/IClaimVault.sol\\\";\\n\\n/**\\n * @title BatchClaim Contract\\n * @author A Q T I S / @AQTIS-Team\\n * @notice This contract handles batch claiming of rewards\\n */\\n\\ncontract BatchClaim is Ownable {\\n    using EnumerableSet for EnumerableSet.AddressSet;\\n\\n    EnumerableSet.AddressSet internal _enabledUsers;\\n    mapping(address => mapping(address => bool)) public userLSTConfig;\\n\\n    // dependencies\\n    IClaimVault public immutable claimVault;\\n    address public scheduler;\\n\\n    // ======= Events ======= //\\n    event ClaimFailed(address indexed user, address indexed lst, string reason);\\n    event AutoClaimEnabled(address indexed user, address indexed lst);\\n    event AutoClaimDisabled(address indexed user, address indexed lst);\\n\\n    constructor(address _claimVault) Ownable(msg.sender) {\\n        require(_claimVault != address(0), \\\"Rewards tracker address cannot be the zero address\\\");\\n\\n        claimVault = IClaimVault(_claimVault);\\n    }\\n\\n    // ======= Modifiers ======= //\\n    modifier onlyScheduler() {\\n        require(msg.sender == owner() || msg.sender == scheduler, \\\"BatchClaim: Caller is not authorized\\\");\\n        _;\\n    }\\n\\n    // ======= External Functions ======= //\\n    function setAutoClaim(address lst, bool _enabled) external {\\n        address[] memory lsts = claimVault.getLSTs();\\n        bool validLST = false;\\n        for (uint i = 0; i < lsts.length; i++) {\\n            if (lst == lsts[i]) {\\n                validLST = true;\\n                break;\\n            }\\n        }\\n        require(validLST, \\\"BatchClaim: LST not found\\\");\\n\\n        userLSTConfig[msg.sender][lst] = _enabled;\\n        // remove user if they have no LSTs enabled\\n        bool remove = true;\\n        // this should only be three LSTs, so O(n) is fine\\n        for (uint i = 0; i < lsts.length; i++) {\\n            if (userLSTConfig[msg.sender][lsts[i]]) {\\n                remove = false;\\n                break;\\n            }\\n        }\\n\\n        if (remove) {\\n            _enabledUsers.remove(msg.sender);\\n        } else if (!_enabledUsers.contains(msg.sender)) {\\n            _enabledUsers.add(msg.sender);\\n        }\\n\\n        if (_enabled) {\\n            emit AutoClaimEnabled(msg.sender, lst);\\n        } else {\\n            emit AutoClaimDisabled(msg.sender, lst);\\n        }\\n    }\\n\\n    function isAutoClaimEnabled(address lst, address _user) external view returns (bool) {\\n        return userLSTConfig[_user][lst];\\n    }\\n\\n    function getAutoClaimUsers() external view returns (address[] memory) {\\n        return _enabledUsers.values();\\n    }\\n\\n    // ======= Permissioned Functions ======= //\\n\\n    function setScheduler(address _scheduler) external onlyOwner {\\n        require(_scheduler != address(0), \\\"BatchClaim: Scheduler address cannot be the zero address\\\");\\n        scheduler = _scheduler;\\n    }\\n\\n    function batchClaim() external onlyScheduler {\\n        address[] memory lsts = claimVault.getLSTs();\\n\\n        for (uint256 i = 0; i < _enabledUsers.length(); i++) {\\n            address user = _enabledUsers.at(i);\\n            for (uint256 j = 0; j < lsts.length; j++) {\\n                if (userLSTConfig[user][lsts[j]]) {\\n                    claimRewardsFor(lsts[j], user);\\n                }\\n            }\\n        }\\n    }\\n\\n    function multiClaim(address[] calldata _users) external onlyScheduler {\\n        address[] memory lsts = claimVault.getLSTs();\\n\\n        for (uint256 i = 0; i < _users.length; i++) {\\n            address user = _users[i];\\n            for (uint256 j = 0; j < lsts.length; j++) {\\n                if (userLSTConfig[user][lsts[j]]) {\\n                    claimRewardsFor(lsts[j], user);\\n                }\\n            }\\n        }\\n    }\\n\\n    function multiClaimLST(address lst, address[] calldata _users) external onlyScheduler {\\n        for (uint256 i = 0; i < _users.length; i++) {\\n            if (userLSTConfig[_users[i]][lst]) {\\n                claimRewardsFor(lst, _users[i]);\\n            }\\n        }\\n    }\\n\\n    function claimRewardsFor(address lst, address user) internal {\\n        try claimVault.claimRewardsFor(lst, user) {\\n            // success\\n        } catch Error(string memory reason) {\\n            emit ClaimFailed(user, lst, reason);\\n        } catch {\\n            emit ClaimFailed(user, lst, \\\"Unknown error\\\");\\n        }\\n    }\\n\\n}\",\"keccak256\":\"0xfc6da93ff6600dc1183c5384e4d17626dad06503a26d01aff14d729d5ebc0524\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x60a060405234801561001057600080fd5b506040516114f63803806114f683398101604081905261002f91610132565b338061005657604051631e4fbdf760e01b8152600060048201526024015b60405180910390fd5b61005f816100e2565b506001600160a01b0381166100d15760405162461bcd60e51b815260206004820152603260248201527f5265776172647320747261636b657220616464726573732063616e6e6f7420626044820152716520746865207a65726f206164647265737360701b606482015260840161004d565b6001600160a01b0316608052610162565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b60006020828403121561014457600080fd5b81516001600160a01b038116811461015b57600080fd5b9392505050565b60805161135d610199600039600081816101bc0152818161045101528181610746015281816109740152610b49015261135d6000f3fe608060405234801561001057600080fd5b50600436106100df5760003560e01c80638da5cb5b1161008c578063c74cd01411610066578063c74cd014146101de578063d1ad17bf146101f1578063f2fde38b14610204578063f4af0bd01461021757600080fd5b80638da5cb5b14610164578063a096028114610189578063ab518e6e146101b757600080fd5b8063610374a5116100bd578063610374a514610136578063715018a6146101495780638bc1d6391461015157600080fd5b806307a38851146100e457806310078eb31461010c5780633f6746ce14610121575b600080fd5b6100f76100f2366004610f36565b61021f565b60405190151581526020015b60405180910390f35b61011461024f565b6040516101039190610f6f565b61013461012f366004610fbc565b610260565b005b610134610144366004611025565b610318565b610134610439565b61013461015f36600461107a565b61044d565b6000546001600160a01b03165b6040516001600160a01b039091168152602001610103565b6100f7610197366004610f36565b600360209081526000928352604080842090915290825290205460ff1681565b6101717f000000000000000000000000000000000000000000000000000000000000000081565b6101346101ec3660046110ad565b6106c7565b600454610171906001600160a01b031681565b610134610212366004610fbc565b61089e565b6101346108f5565b6001600160a01b0380821660009081526003602090815260408083209386168352929052205460ff165b92915050565b606061025b6001610aaf565b905090565b610268610ac3565b6001600160a01b0381166102e95760405162461bcd60e51b815260206004820152603860248201527f4261746368436c61696d3a205363686564756c6572206164647265737320636160448201527f6e6e6f7420626520746865207a65726f2061646472657373000000000000000060648201526084015b60405180910390fd5b6004805473ffffffffffffffffffffffffffffffffffffffff19166001600160a01b0392909216919091179055565b6000546001600160a01b031633148061033b57506004546001600160a01b031633145b6103935760405162461bcd60e51b8152602060048201526024808201527f4261746368436c61696d3a2043616c6c6572206973206e6f7420617574686f726044820152631a5e995960e21b60648201526084016102e0565b60005b8181101561043357600360008484848181106103b4576103b46110ef565b90506020020160208101906103c99190610fbc565b6001600160a01b039081168252602080830193909352604091820160009081209188168152925290205460ff161561042b5761042b84848484818110610411576104116110ef565b90506020020160208101906104269190610fbc565b610b09565b600101610396565b50505050565b610441610ac3565b61044b6000610c9a565b565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03166308437d156040518163ffffffff1660e01b8152600401600060405180830381865afa1580156104ad573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526104d59190810190611148565b90506000805b8251811015610527578281815181106104f6576104f66110ef565b60200260200101516001600160a01b0316856001600160a01b03160361051f5760019150610527565b6001016104db565b50806105755760405162461bcd60e51b815260206004820152601960248201527f4261746368436c61696d3a204c5354206e6f7420666f756e640000000000000060448201526064016102e0565b3360009081526003602090815260408083206001600160a01b03881684529091528120805460ff19168515151790556001905b83518110156106145733600090815260036020526040812085519091908690849081106105d7576105d76110ef565b6020908102919091018101516001600160a01b031682528101919091526040016000205460ff161561060c5760009150610614565b6001016105a8565b50801561062c57610626600133610cf7565b50610648565b610637600133610d0c565b61064857610646600133610d2e565b505b8315610689576040516001600160a01b0386169033907f68a0e1fb4b8d8347cf019e12fe88923b558d51953a8a42bbb3fe0040de5c775290600090a36106c0565b6040516001600160a01b0386169033907f67b5a7964c73c3b4f79389396f8318446f36c5e4faa5efafb71e299a8d95393390600090a35b5050505050565b6000546001600160a01b03163314806106ea57506004546001600160a01b031633145b6107425760405162461bcd60e51b8152602060048201526024808201527f4261746368436c61696d3a2043616c6c6572206973206e6f7420617574686f726044820152631a5e995960e21b60648201526084016102e0565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03166308437d156040518163ffffffff1660e01b8152600401600060405180830381865afa1580156107a2573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526107ca9190810190611148565b905060005b828110156104335760008484838181106107eb576107eb6110ef565b90506020020160208101906108009190610fbc565b905060005b8351811015610894576001600160a01b0382166000908152600360205260408120855190919086908490811061083d5761083d6110ef565b6020908102919091018101516001600160a01b031682528101919091526040016000205460ff161561088c5761088c84828151811061087e5761087e6110ef565b602002602001015183610b09565b600101610805565b50506001016107cf565b6108a6610ac3565b6001600160a01b0381166108e9576040517f1e4fbdf7000000000000000000000000000000000000000000000000000000008152600060048201526024016102e0565b6108f281610c9a565b50565b6000546001600160a01b031633148061091857506004546001600160a01b031633145b6109705760405162461bcd60e51b8152602060048201526024808201527f4261746368436c61696d3a2043616c6c6572206973206e6f7420617574686f726044820152631a5e995960e21b60648201526084016102e0565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03166308437d156040518163ffffffff1660e01b8152600401600060405180830381865afa1580156109d0573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526109f89190810190611148565b905060005b610a076001610d43565b811015610aab576000610a1b600183610d4d565b905060005b8351811015610aa1576001600160a01b03821660009081526003602052604081208551909190869084908110610a5857610a586110ef565b6020908102919091018101516001600160a01b031682528101919091526040016000205460ff1615610a9957610a9984828151811061087e5761087e6110ef565b600101610a20565b50506001016109fd565b5050565b60606000610abc83610d59565b9392505050565b6000546001600160a01b0316331461044b576040517f118cdaa70000000000000000000000000000000000000000000000000000000081523360048201526024016102e0565b6040517fa16633400000000000000000000000000000000000000000000000000000000081526001600160a01b03838116600483015282811660248301527f0000000000000000000000000000000000000000000000000000000000000000169063a166334090604401600060405180830381600087803b158015610b8d57600080fd5b505af1925050508015610b9e575060015b610aab57610baa6111fb565b806308c379a003610c195750610bbe611217565b80610bc95750610c1b565b826001600160a01b0316826001600160a01b03167f941d4080bf45ad4f4b547a2c095bc203ff76ba1f67d7e1102d7059f686d617c883604051610c0c91906112a1565b60405180910390a3505050565b505b816001600160a01b0316816001600160a01b03167f941d4080bf45ad4f4b547a2c095bc203ff76ba1f67d7e1102d7059f686d617c8604051610c8e906020808252600d908201527f556e6b6e6f776e206572726f7200000000000000000000000000000000000000604082015260600190565b60405180910390a35050565b600080546001600160a01b0383811673ffffffffffffffffffffffffffffffffffffffff19831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b6000610abc836001600160a01b038416610db5565b6001600160a01b03811660009081526001830160205260408120541515610abc565b6000610abc836001600160a01b038416610ea8565b6000610249825490565b6000610abc8383610ef7565b606081600001805480602002602001604051908101604052809291908181526020018280548015610da957602002820191906000526020600020905b815481526020019060010190808311610d95575b50505050509050919050565b60008181526001830160205260408120548015610e9e576000610dd96001836112f0565b8554909150600090610ded906001906112f0565b9050808214610e52576000866000018281548110610e0d57610e0d6110ef565b9060005260206000200154905080876000018481548110610e3057610e306110ef565b6000918252602080832090910192909255918252600188019052604090208390555b8554869080610e6357610e63611311565b600190038181906000526020600020016000905590558560010160008681526020019081526020016000206000905560019350505050610249565b6000915050610249565b6000818152600183016020526040812054610eef57508154600181810184556000848152602080822090930184905584548482528286019093526040902091909155610249565b506000610249565b6000826000018281548110610f0e57610f0e6110ef565b9060005260206000200154905092915050565b6001600160a01b03811681146108f257600080fd5b60008060408385031215610f4957600080fd5b8235610f5481610f21565b91506020830135610f6481610f21565b809150509250929050565b6020808252825182820181905260009190848201906040850190845b81811015610fb05783516001600160a01b031683529284019291840191600101610f8b565b50909695505050505050565b600060208284031215610fce57600080fd5b8135610abc81610f21565b60008083601f840112610feb57600080fd5b50813567ffffffffffffffff81111561100357600080fd5b6020830191508360208260051b850101111561101e57600080fd5b9250929050565b60008060006040848603121561103a57600080fd5b833561104581610f21565b9250602084013567ffffffffffffffff81111561106157600080fd5b61106d86828701610fd9565b9497909650939450505050565b6000806040838503121561108d57600080fd5b823561109881610f21565b915060208301358015158114610f6457600080fd5b600080602083850312156110c057600080fd5b823567ffffffffffffffff8111156110d757600080fd5b6110e385828601610fd9565b90969095509350505050565b634e487b7160e01b600052603260045260246000fd5b634e487b7160e01b600052604160045260246000fd5b601f8201601f1916810167ffffffffffffffff8111828210171561114157611141611105565b6040525050565b6000602080838503121561115b57600080fd5b825167ffffffffffffffff8082111561117357600080fd5b818501915085601f83011261118757600080fd5b81518181111561119957611199611105565b8060051b91506040516111ae8584018261111b565b818152918301840191848101888411156111c757600080fd5b938501935b838510156111ef57845192506111e183610f21565b8281529385019385016111cc565b50979650505050505050565b600060033d11156112145760046000803e5060005160e01c5b90565b600060443d10156112255790565b6040516003193d81016004833e81513d67ffffffffffffffff816024840111818411171561125557505050505090565b828501915081518181111561126d5750505050505090565b843d87010160208285010111156112875750505050505090565b6112966020828601018761111b565b509095945050505050565b60006020808352835180602085015260005b818110156112cf578581018301518582016040015282016112b3565b506000604082860101526040601f19601f8301168501019250505092915050565b8181038181111561024957634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052603160045260246000fdfea26469706673582212209eb931589e906449d00f144a4bd4ae220150f3dcd5fc1d9a7b87f7664ee03ba864736f6c63430008170033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100df5760003560e01c80638da5cb5b1161008c578063c74cd01411610066578063c74cd014146101de578063d1ad17bf146101f1578063f2fde38b14610204578063f4af0bd01461021757600080fd5b80638da5cb5b14610164578063a096028114610189578063ab518e6e146101b757600080fd5b8063610374a5116100bd578063610374a514610136578063715018a6146101495780638bc1d6391461015157600080fd5b806307a38851146100e457806310078eb31461010c5780633f6746ce14610121575b600080fd5b6100f76100f2366004610f36565b61021f565b60405190151581526020015b60405180910390f35b61011461024f565b6040516101039190610f6f565b61013461012f366004610fbc565b610260565b005b610134610144366004611025565b610318565b610134610439565b61013461015f36600461107a565b61044d565b6000546001600160a01b03165b6040516001600160a01b039091168152602001610103565b6100f7610197366004610f36565b600360209081526000928352604080842090915290825290205460ff1681565b6101717f000000000000000000000000000000000000000000000000000000000000000081565b6101346101ec3660046110ad565b6106c7565b600454610171906001600160a01b031681565b610134610212366004610fbc565b61089e565b6101346108f5565b6001600160a01b0380821660009081526003602090815260408083209386168352929052205460ff165b92915050565b606061025b6001610aaf565b905090565b610268610ac3565b6001600160a01b0381166102e95760405162461bcd60e51b815260206004820152603860248201527f4261746368436c61696d3a205363686564756c6572206164647265737320636160448201527f6e6e6f7420626520746865207a65726f2061646472657373000000000000000060648201526084015b60405180910390fd5b6004805473ffffffffffffffffffffffffffffffffffffffff19166001600160a01b0392909216919091179055565b6000546001600160a01b031633148061033b57506004546001600160a01b031633145b6103935760405162461bcd60e51b8152602060048201526024808201527f4261746368436c61696d3a2043616c6c6572206973206e6f7420617574686f726044820152631a5e995960e21b60648201526084016102e0565b60005b8181101561043357600360008484848181106103b4576103b46110ef565b90506020020160208101906103c99190610fbc565b6001600160a01b039081168252602080830193909352604091820160009081209188168152925290205460ff161561042b5761042b84848484818110610411576104116110ef565b90506020020160208101906104269190610fbc565b610b09565b600101610396565b50505050565b610441610ac3565b61044b6000610c9a565b565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03166308437d156040518163ffffffff1660e01b8152600401600060405180830381865afa1580156104ad573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526104d59190810190611148565b90506000805b8251811015610527578281815181106104f6576104f66110ef565b60200260200101516001600160a01b0316856001600160a01b03160361051f5760019150610527565b6001016104db565b50806105755760405162461bcd60e51b815260206004820152601960248201527f4261746368436c61696d3a204c5354206e6f7420666f756e640000000000000060448201526064016102e0565b3360009081526003602090815260408083206001600160a01b03881684529091528120805460ff19168515151790556001905b83518110156106145733600090815260036020526040812085519091908690849081106105d7576105d76110ef565b6020908102919091018101516001600160a01b031682528101919091526040016000205460ff161561060c5760009150610614565b6001016105a8565b50801561062c57610626600133610cf7565b50610648565b610637600133610d0c565b61064857610646600133610d2e565b505b8315610689576040516001600160a01b0386169033907f68a0e1fb4b8d8347cf019e12fe88923b558d51953a8a42bbb3fe0040de5c775290600090a36106c0565b6040516001600160a01b0386169033907f67b5a7964c73c3b4f79389396f8318446f36c5e4faa5efafb71e299a8d95393390600090a35b5050505050565b6000546001600160a01b03163314806106ea57506004546001600160a01b031633145b6107425760405162461bcd60e51b8152602060048201526024808201527f4261746368436c61696d3a2043616c6c6572206973206e6f7420617574686f726044820152631a5e995960e21b60648201526084016102e0565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03166308437d156040518163ffffffff1660e01b8152600401600060405180830381865afa1580156107a2573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526107ca9190810190611148565b905060005b828110156104335760008484838181106107eb576107eb6110ef565b90506020020160208101906108009190610fbc565b905060005b8351811015610894576001600160a01b0382166000908152600360205260408120855190919086908490811061083d5761083d6110ef565b6020908102919091018101516001600160a01b031682528101919091526040016000205460ff161561088c5761088c84828151811061087e5761087e6110ef565b602002602001015183610b09565b600101610805565b50506001016107cf565b6108a6610ac3565b6001600160a01b0381166108e9576040517f1e4fbdf7000000000000000000000000000000000000000000000000000000008152600060048201526024016102e0565b6108f281610c9a565b50565b6000546001600160a01b031633148061091857506004546001600160a01b031633145b6109705760405162461bcd60e51b8152602060048201526024808201527f4261746368436c61696d3a2043616c6c6572206973206e6f7420617574686f726044820152631a5e995960e21b60648201526084016102e0565b60007f00000000000000000000000000000000000000000000000000000000000000006001600160a01b03166308437d156040518163ffffffff1660e01b8152600401600060405180830381865afa1580156109d0573d6000803e3d6000fd5b505050506040513d6000823e601f3d908101601f191682016040526109f89190810190611148565b905060005b610a076001610d43565b811015610aab576000610a1b600183610d4d565b905060005b8351811015610aa1576001600160a01b03821660009081526003602052604081208551909190869084908110610a5857610a586110ef565b6020908102919091018101516001600160a01b031682528101919091526040016000205460ff1615610a9957610a9984828151811061087e5761087e6110ef565b600101610a20565b50506001016109fd565b5050565b60606000610abc83610d59565b9392505050565b6000546001600160a01b0316331461044b576040517f118cdaa70000000000000000000000000000000000000000000000000000000081523360048201526024016102e0565b6040517fa16633400000000000000000000000000000000000000000000000000000000081526001600160a01b03838116600483015282811660248301527f0000000000000000000000000000000000000000000000000000000000000000169063a166334090604401600060405180830381600087803b158015610b8d57600080fd5b505af1925050508015610b9e575060015b610aab57610baa6111fb565b806308c379a003610c195750610bbe611217565b80610bc95750610c1b565b826001600160a01b0316826001600160a01b03167f941d4080bf45ad4f4b547a2c095bc203ff76ba1f67d7e1102d7059f686d617c883604051610c0c91906112a1565b60405180910390a3505050565b505b816001600160a01b0316816001600160a01b03167f941d4080bf45ad4f4b547a2c095bc203ff76ba1f67d7e1102d7059f686d617c8604051610c8e906020808252600d908201527f556e6b6e6f776e206572726f7200000000000000000000000000000000000000604082015260600190565b60405180910390a35050565b600080546001600160a01b0383811673ffffffffffffffffffffffffffffffffffffffff19831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b6000610abc836001600160a01b038416610db5565b6001600160a01b03811660009081526001830160205260408120541515610abc565b6000610abc836001600160a01b038416610ea8565b6000610249825490565b6000610abc8383610ef7565b606081600001805480602002602001604051908101604052809291908181526020018280548015610da957602002820191906000526020600020905b815481526020019060010190808311610d95575b50505050509050919050565b60008181526001830160205260408120548015610e9e576000610dd96001836112f0565b8554909150600090610ded906001906112f0565b9050808214610e52576000866000018281548110610e0d57610e0d6110ef565b9060005260206000200154905080876000018481548110610e3057610e306110ef565b6000918252602080832090910192909255918252600188019052604090208390555b8554869080610e6357610e63611311565b600190038181906000526020600020016000905590558560010160008681526020019081526020016000206000905560019350505050610249565b6000915050610249565b6000818152600183016020526040812054610eef57508154600181810184556000848152602080822090930184905584548482528286019093526040902091909155610249565b506000610249565b6000826000018281548110610f0e57610f0e6110ef565b9060005260206000200154905092915050565b6001600160a01b03811681146108f257600080fd5b60008060408385031215610f4957600080fd5b8235610f5481610f21565b91506020830135610f6481610f21565b809150509250929050565b6020808252825182820181905260009190848201906040850190845b81811015610fb05783516001600160a01b031683529284019291840191600101610f8b565b50909695505050505050565b600060208284031215610fce57600080fd5b8135610abc81610f21565b60008083601f840112610feb57600080fd5b50813567ffffffffffffffff81111561100357600080fd5b6020830191508360208260051b850101111561101e57600080fd5b9250929050565b60008060006040848603121561103a57600080fd5b833561104581610f21565b9250602084013567ffffffffffffffff81111561106157600080fd5b61106d86828701610fd9565b9497909650939450505050565b6000806040838503121561108d57600080fd5b823561109881610f21565b915060208301358015158114610f6457600080fd5b600080602083850312156110c057600080fd5b823567ffffffffffffffff8111156110d757600080fd5b6110e385828601610fd9565b90969095509350505050565b634e487b7160e01b600052603260045260246000fd5b634e487b7160e01b600052604160045260246000fd5b601f8201601f1916810167ffffffffffffffff8111828210171561114157611141611105565b6040525050565b6000602080838503121561115b57600080fd5b825167ffffffffffffffff8082111561117357600080fd5b818501915085601f83011261118757600080fd5b81518181111561119957611199611105565b8060051b91506040516111ae8584018261111b565b818152918301840191848101888411156111c757600080fd5b938501935b838510156111ef57845192506111e183610f21565b8281529385019385016111cc565b50979650505050505050565b600060033d11156112145760046000803e5060005160e01c5b90565b600060443d10156112255790565b6040516003193d81016004833e81513d67ffffffffffffffff816024840111818411171561125557505050505090565b828501915081518181111561126d5750505050505090565b843d87010160208285010111156112875750505050505090565b6112966020828601018761111b565b509095945050505050565b60006020808352835180602085015260005b818110156112cf578581018301518582016040015282016112b3565b506000604082860101526040601f19601f8301168501019250505092915050565b8181038181111561024957634e487b7160e01b600052601160045260246000fd5b634e487b7160e01b600052603160045260246000fdfea26469706673582212209eb931589e906449d00f144a4bd4ae220150f3dcd5fc1d9a7b87f7664ee03ba864736f6c63430008170033",
+  "devdoc": {
+    "author": "A Q T I S / @AQTIS-Team",
+    "errors": {
+      "OwnableInvalidOwner(address)": [
+        {
+          "details": "The owner is not a valid owner account. (eg. `address(0)`)"
+        }
+      ],
+      "OwnableUnauthorizedAccount(address)": [
+        {
+          "details": "The caller account is not authorized to perform an operation."
+        }
+      ]
+    },
+    "kind": "dev",
+    "methods": {
+      "owner()": {
+        "details": "Returns the address of the current owner."
+      },
+      "renounceOwnership()": {
+        "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby disabling any functionality that is only available to the owner."
+      },
+      "transferOwnership(address)": {
+        "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+      }
+    },
+    "title": "BatchClaim Contract",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "notice": "This contract handles batch claiming of rewards",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 8,
+        "contract": "contracts/rewards/BatchClaim.sol:BatchClaim",
+        "label": "_owner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address"
+      },
+      {
+        "astId": 13365,
+        "contract": "contracts/rewards/BatchClaim.sol:BatchClaim",
+        "label": "_enabledUsers",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_struct(AddressSet)3851_storage"
+      },
+      {
+        "astId": 13371,
+        "contract": "contracts/rewards/BatchClaim.sol:BatchClaim",
+        "label": "userLSTConfig",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_mapping(t_address,t_mapping(t_address,t_bool))"
+      },
+      {
+        "astId": 13376,
+        "contract": "contracts/rewards/BatchClaim.sol:BatchClaim",
+        "label": "scheduler",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_array(t_bytes32)dyn_storage": {
+        "base": "t_bytes32",
+        "encoding": "dynamic_array",
+        "label": "bytes32[]",
+        "numberOfBytes": "32"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_bytes32": {
+        "encoding": "inplace",
+        "label": "bytes32",
+        "numberOfBytes": "32"
+      },
+      "t_mapping(t_address,t_bool)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => bool)",
+        "numberOfBytes": "32",
+        "value": "t_bool"
+      },
+      "t_mapping(t_address,t_mapping(t_address,t_bool))": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => mapping(address => bool))",
+        "numberOfBytes": "32",
+        "value": "t_mapping(t_address,t_bool)"
+      },
+      "t_mapping(t_bytes32,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_bytes32",
+        "label": "mapping(bytes32 => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_struct(AddressSet)3851_storage": {
+        "encoding": "inplace",
+        "label": "struct EnumerableSet.AddressSet",
+        "members": [
+          {
+            "astId": 3850,
+            "contract": "contracts/rewards/BatchClaim.sol:BatchClaim",
+            "label": "_inner",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_struct(Set)3536_storage"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_struct(Set)3536_storage": {
+        "encoding": "inplace",
+        "label": "struct EnumerableSet.Set",
+        "members": [
+          {
+            "astId": 3531,
+            "contract": "contracts/rewards/BatchClaim.sol:BatchClaim",
+            "label": "_values",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_array(t_bytes32)dyn_storage"
+          },
+          {
+            "astId": 3535,
+            "contract": "contracts/rewards/BatchClaim.sol:BatchClaim",
+            "label": "_positions",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_mapping(t_bytes32,t_uint256)"
+          }
+        ],
+        "numberOfBytes": "64"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

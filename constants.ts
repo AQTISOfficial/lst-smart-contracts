@@ -1,0 +1,60 @@
+export const USDC_ADDRESSES: Record<number, `0x${string}`> = {
+  1: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+  // sepolia
+  11155111: "0x1c7D4B196Cb0C7B01d743Fbc6116a902379C7238",
+};
+
+export const WETH_ADDRESSES: Record<number, `0x${string}`> = {
+  1: "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+  // sepolia
+  11155111: "0xfFf9976782d46CC05630D1f6eBAb18b2324d6B14",
+};
+
+export const AQTIS_ADDRESSES: Record<number, `0x${string}`> = {
+  1: "0x6FF2241756549B5816A177659E766EAf14B34429",
+  // sepolia
+  11155111: "0x4D9dbA936fF4a95db41B5C6e1Dd625129C74740b",
+};
+
+export const AQTIS_POOL_ADDRESSES: Record<number, `0x${string}`> = {
+  1: "0xb777d386a9f6bf14ff85d92b27dc70209141e787",
+  // sepolia
+  11155111: "0x465361A9D296e6Dd1586150dA31a6d7738533a54",
+};
+
+
+export const UNISWAP_FACTORY_ADDRESSES: Record<number, `0x${string}`> = {
+  1: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+  // sepolia
+  11155111: "0x0227628f3F023bb0B980b67D528571c95c6DaC1c",
+};
+
+export const UNISWAP_V2_ROUTER_ADDRESSES: Record<number, `0x${string}`> = {
+  1: "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D",
+  // sepolia
+  11155111: "0xC532a74256D3Db42D0Bf7a0400fEFDbad7694008",
+};
+
+export const UNISWAP_V2_FACTORY_ADDRESSES: Record<number, `0x${string}`> = {
+  1: "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+  // sepolia
+  11155111: "0x7E0987E5b3a30e3f2828572Bb659A548460a3003",
+};
+
+export const UNISWAP_NONFUNGIBLE_POSITION_MANAGER_ADDRESSES: Record<number, `0x${string}`> = {
+  1: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+  // sepolia
+  11155111: "0x1238536071E1c677A632429e3655c799b22cDA52",
+};
+
+export const CHAINLINK_ETH_FEED_ADDRESSES: Record<number, `0x${string}`> = {
+  1: "0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419",
+  // sepolia
+  11155111: "0x694AA1769357215DE4FAC081bf1f309aDC325306",
+};
+
+export const CHAINLINK_USDC_FEED_ADDRESSES: Record<number, `0x${string}`> = {
+  1: "0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6",
+  // sepolia
+  11155111: "0xA2F78ab2355fe2f984D808B5CeE7FD0A93D5270E",
+};

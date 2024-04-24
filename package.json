@@ -1,0 +1,48 @@
+{
+  "name": "aqtis-smart-contracts",
+  "version": "1.0.0",
+  "description": "AQTIS Smart Contracts, encapsulating the logic of LST tokens and ensuring seamless transactions, while laying the foundation for a decentralized and community-driven financial infrastructure.",
+  "main": "index.js",
+  "scripts": {
+    "test": "hardhat test",
+    "test:lst-swap": "hardhat test ./test/LSTSwap.test.ts",
+    "test:v2-oracle": "hardhat test test/UniswapV2PriceOracle.ts",
+    "test:price-calculator": "hardhat test test/TokenPriceCalculator.test.ts",
+    "test:qeth": "hardhat test test/Qeth.test.ts",
+    "test:qrt": "hardhat test test/Qrt.test.ts",
+    "test:qsd": "hardhat test test/Qsd.test.ts",
+    "test:bonus": "hardhat test test/MintingBonus.test.ts",
+    "test:alst": "hardhat test test/AbstractLST.test.ts",
+    "test:abstract-rewards": "hardhat test test/AbstractRewards.test.ts",
+    "test:qrt-rewards": "hardhat test test/QrtRewards.test.ts",
+    "test:qeth-rewards": "hardhat test test/QethRewards.test.ts",
+    "test:qsd-rewards": "hardhat test test/QsdRewards.test.ts",
+    "test:claim-vault": "hardhat test test/ClaimVault.test.ts",
+    "test:batch-claim": "hardhat test test/BatchClaim.test.ts",
+    "test:individual": "hardhat test --grep \"should autocompound rewards\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AQTISOfficial/aqtis-smart-contracts.git"
+  },
+  "author": "thecoder-aqtis",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AQTISOfficial/aqtis-smart-contracts/issues"
+  },
+  "homepage": "https://github.com/AQTISOfficial/aqtis-smart-contracts#readme",
+  "devDependencies": {
+    "@chainlink/contracts": "^0.8.0",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.3",
+    "@nomiclabs/hardhat-ganache": "^2.0.1",
+    "@openzeppelin/contracts": "5.0.1",
+    "dotenv": "^16.3.1",
+    "hardhat": "^2.19.3",
+    "hardhat-deploy": "^0.11.45",
+    "typescript": "^5.2.2",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.10",
+    "@uniswap/v3-core": "^1.0.1",
+    "@uniswap/v3-periphery": "^1.4.4"
+  }
+}

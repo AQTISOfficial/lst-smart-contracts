@@ -1,0 +1,67 @@
+# Dependency directories
+node_modules/
+vendor/
+
+# Hardhat artifacts
+artifacts/
+cache/
+coverage/
+typechain-types/
+
+# Truffle artifacts (if used)
+build/
+build_*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Operating System generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Compiled output
+/dist
+/out
+/build
+
+# Dependency lock files (uncomment if not to be committed)
+# package-lock.json
+# yarn.lock
+
+# Keystore files (if applicable)
+*.jks
+*.p12
+
+# Private keys and mnemonic files
+*.key
+mnemonic.txt
+secret
+
+# Production / Deployment
+/.next/
+.next/*
+
+# Misc
+dev_notes.txt
